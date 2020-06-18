@@ -38,7 +38,7 @@
 
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
   .login-box .or {
-    top: 30%;
+    top: 50%;
   }
 }
 
@@ -247,7 +247,7 @@
   height: 100%;
   width: 100%;
   border: 1px solid white;
-  background: black;
+  background: #89A6BE;
   opacity: 0.8;
   transition: opacity 0.2s ease-out;
 }
@@ -259,24 +259,36 @@
 
 #b1 {
   grid-area: big-top;
+  text-align: center;
+  color: #Ab0d17;
+  fo
 }
 
 #b2 {
   grid-area: small-top;
+  text-align: center;
+  color: #Ab0d17;
 }
 
 #b3 {
   grid-area: small-middle;
+  text-align: center;
+  color: #Ab0d17;
 }
 
 #b4 {
   grid-area: big-middle;
+  text-align: center;
+  color: #Ab0d17;
 }
+
 
 .bottom-block {
   grid-area: big-bottom;
   display: -ms-grid;
   display: grid;
+  text-align: center;
+  color: #Ab0d17;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
 }
