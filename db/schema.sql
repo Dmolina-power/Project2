@@ -1,12 +1,3 @@
-DROP DATABASE IF EXISTS userInfo_db;
+DROP DATABASE IF EXISTS mood_swing_db;
 
-CREATE DATABASE user_info;
-
-USE user_info;
-
-DROP DATABASE IF EXISTS playlist_db;
-
-CREATE DATABASE playlist_db;
-
-USE playlist_db;
-
+CREATE DATABASE mood_swing_db;

@@ -16,6 +16,7 @@
   color: #4c5b61;
   border-radius: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .login-box .or {
@@ -34,12 +35,6 @@
   font-size: 1.275rem;
   background: #cacaca;
   box-shadow: 0 2px 4px rgba(10, 10, 10, 0.4);
-}
-
-@media screen and (min-width: 64em) and (max-width: 74.9375em) {
-  .login-box .or {
-    top: 50%;
-  }
 }
 
 .login-box-title {
