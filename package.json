@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "2.4.3",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "express-sessions": "^1.0.6",
+    "mysql": "^2.18.1",
     "mysql2": "^1.6.5",
     "node": "^14.4.0",
     "passport": "^0.4.1",
