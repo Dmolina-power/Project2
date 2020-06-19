@@ -1,24 +1,38 @@
 // Requiring necessary npm packages
-var express = require("express");
-var session = require("express-session");
+require("dotenv").config();
+const fetch = require("node-fetch");
+global.fetch = fetch;
+const express = require("express");
+const exphbs = require("express-handlebars");
+const session = require("express-session");
 // Requiring passport as we've configured it
-var passport = require("./config/sendmoods");
+const passport = require("./config/sendmoods");
 
 // Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080;
-var db = require("./models");
+const PORT = process.env.PORT || 8080;
+const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
-var app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
-// We need to use sessions to keep track of our user's login status
+const app = express();
+
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
+
+// Parsing of json body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// sets up public directory
+app.use(express.static("public"));
+
+// sets up passport authentication
 app.use(passport.initialize());
 app.use(passport.session());
+
+// sets up handlebars
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);

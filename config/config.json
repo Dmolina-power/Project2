@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "mood_swings_db",
+    "database": "mood_swing_db",
     "port": 3306,
     "host": "localhost",
     "dialect": "mysql"
