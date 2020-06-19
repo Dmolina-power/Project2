@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "mood_swing_db",
-    "host": "127.0.0.1",
+    "username": "lgdniypt3oy4zw4l",
+    "password": "izkmbg6lrv0w0q6t",
+    "database": "qa5tpy3gtlt7ebp8",
+    "host": "zf4nk2bcqjvif4in.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "lgdniypt3oy4zw4l",
+    "password": "izkmbg6lrv0w0q6t",
+    "database": "qa5tpy3gtlt7ebp8",
+    "host": "zf4nk2bcqjvif4in.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "use_env_variable": "JAWSDB_URL"
   }
 }
