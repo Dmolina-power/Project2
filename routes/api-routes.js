@@ -1,17 +1,13 @@
 // Requiring our models and passport as we've configured it
-const db = require("./models");
-const passport = require("./config/passport");
+const db = require("../models");
+const passport = require("../config/sendmoods");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      username: req.user.username,
-      id: req.user.id
-    });
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -19,7 +15,8 @@ module.exports = function (app) {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
-      username: req.body.username,
+      
+      email: req.body.email,
       password: req.body.password
     })
       .then(() => {
@@ -45,7 +42,7 @@ module.exports = function (app) {
       // Otherwise send back the user's username and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        username: req.user.username,
+        email: req.user.email,
         id: req.user.id
       });
     }
