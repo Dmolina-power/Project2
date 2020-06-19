@@ -2,6 +2,8 @@
 const db = require("../models");
 const passport = require("../config/sendmoods");
 
+const unsplash = require("../utils/unsplash");
+
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -47,4 +49,14 @@ module.exports = function (app) {
       });
     }
   });
+  app.get("/api/unsplash/:search", function (req, res) {
+    unsplash.search
+      .photos(req.params.search, 1, 10, { orientation: "portrait" })
+      .then((data) => data.json())
+      .then((json) => {
+        // Your code
+        res.json(json);
+      });
+  });
+  
 };
