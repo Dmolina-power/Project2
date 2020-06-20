@@ -4,11 +4,14 @@
             <li class="menu-text">Send Moods</li>
             <li>
                 <ul class="menu">
-                    <li><a href="login.html">Log In</a></li>
-                    <li><a href="signup.html">Sign Up</a></li>
-
+                 {{#if isAuthenticated}}
+                    <li><a href="/">Log Out</a></li>
+                   {{else}}      
+                    <li><a href="login">Log In</a></li>
+                    {{/if}}
                 </ul>
             </li>
         </ul>
     </div>
 </div>
+                    
