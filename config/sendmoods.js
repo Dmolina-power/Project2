@@ -13,6 +13,7 @@ passport.use(new LocalStrategy(
     // When a user tries to sign in this code runs
     db.User.findOne({
       where: {
+        
         email: email
       }
     }).then(function(dbUser) {
