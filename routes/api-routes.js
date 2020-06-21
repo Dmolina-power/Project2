@@ -2,22 +2,23 @@
 const db = require("../models");
 const passport = require("../config/sendmoods");
 
-const unsplash = require("../utils/unsplash");
+const axios = require("axios");
+
+const accessKey = process.env.ACCESS_KEY;
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/login", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("signup", (req, res) => {
+  app.post("/api/signup", (req, res) => {
     db.User.create({
-      
       email: req.body.email,
       password: req.body.password
     })
@@ -50,13 +51,7 @@ module.exports = function (app) {
     }
   });
   app.get("/api/unsplash/:search", function (req, res) {
-    unsplash.search
-      .photos(req.params.search, 1, 10, { orientation: "portrait" })
-      .then((data) => data.json())
-      .then((json) => {
-        // Your code
-        res.json(json);
-      });
+    axios.get(`https://api.unsplash.com/search/photos?query=${req.params.search}&client_id=${accessKey}`).then(result => res.json(result.data));
   });
   
 };
