@@ -2,7 +2,7 @@ $(document).ready(() => {
   // Getting references to our form and inputs
   var loginForm = $(".login-box-form-section");
   var emailInput = $("input[name='email']");
-  var passwordInput = $("input[name='password'");
+  var passwordInput = $("input[name='password']");
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", event => {

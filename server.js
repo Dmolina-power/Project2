@@ -7,6 +7,7 @@ const exphbs = require("express-handlebars");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/sendmoods");
+const authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
@@ -29,6 +30,7 @@ app.use(express.static("public"));
 // sets up passport authentication
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(authCheck);
 
 // sets up handlebars
 app.engine("handlebars", exphbs());
