@@ -4,9 +4,9 @@
             <li class="menu-text">Send Moods</li>
             <li>
                 <ul class="menu">
-                 {{#if isAuthenticated}}
-                    <li><a href="/">Log Out</a></li>
-                   {{else}}      
+                    {{#if isAuthenticated}}
+                    <li><a href="/logout">Log Out</a></li>
+                    {{else}}
                     <li><a href="/signup">Sign Up</a></li>
                     {{/if}}
                 </ul>
@@ -14,4 +14,3 @@
         </ul>
     </div>
 </div>
-                    
