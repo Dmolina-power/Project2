@@ -1,15 +1,14 @@
- <link rel="stylesheet" href="public/stylesheets/style.css/"> 
  {{> topbar }}
  <div class="login-box">
       <div class="row collapse expanded">
         <div class="small-12 medium-6 column small-order-2 medium-order-1">
-          <div class="login-box-form-section">
+          <form class="login-box-form-section">
             <h1 class="login-box-title">log In</h1>
             <input
               class="login-box-input"
               type="text"
-              name="username"
-              placeholder="Username"
+              name="email"
+              placeholder="Email"
             />
             <input
               class="login-box-input"
@@ -24,9 +23,9 @@
               name="signup_submit"
               value="Log In"
             />
-          </div>
-          <div class="or">OR</div>
+          </form>
         </div>
+        <div class="or">OR</div>
         <div
           class="small-12 medium-6 column small-order-1 medium-order-2 login-box-social-section"
         >
