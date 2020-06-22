@@ -17,6 +17,12 @@
   color: #89abbe;
 }
 
+.cardImg{
+  max-width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
 
 
 .login-box, .signup-box {
