@@ -1,114 +1,12 @@
 {{> topbar}}
 
-
-<div class="grid-container">
-    <div class="row">
-        <div class="col-1">
-            <div class="card-1">
-                <div class="card-title">
-                    <img class="cardImg"
-                        src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                        alt="Ambiet Acitive">
-                    <h1>Ambient Active</h1>
-                    <div class="card-name">
-                        <h4>Move to these moods</h4>
-                    </div>
-                    <button type="submit" id="card-1playButton">Play</button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-2">
-            <div class="card-2">
-                <div class="card-title">
-                    <img class="cardImg"
-                        src="https://images.unsplash.com/photo-1564865878688-9a244444042a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                        alt="Code">
-                    <h1>Code Concentrate</h1>
-                    <div class="card-name">
-                        <h4>Core coding</h4>
-                    </div>
-                    <button type="submit" id="card-2playButton">Play</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3">
-            <div class="card-3">
-                <div class="card-title">
-                    <img class="cardImg" src="URL from Unsplash- set not API" alt="Img 3">
-                    <h1>3</h1>
-                    <div class="card-name">
-                        <h4>3</h4>
-                    </div>
-                    <button type="submit" id="card-3playButton">Play</button>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-4">
-            <div class="card-4">
-                <div class="card-title">
-                    <img class="cardImg" src="URL from Unsplash- set not API" alt="Img 4">
-                    <h1>4</h1>
-                    <div class="card-name">
-                        <h4>4 info</h4>
-                    </div>
-                    <button type="submit" id="card-4playButton">Play</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-5">
-            <div class="card-5">
-                <div class="card-title">
-                    <img class="cardImg" src="URL from Unsplash- set not API" alt="Img 5">
-                    <h1>5</h1>
-                    <div class="card-name">
-                        <h4>555</h4>
-                    </div>
-                    <button type="submit" id="card-5playButton">Play</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card-6">
-                <div class="card-title">
-                    <img class="cardImg" src="URL from Unsplash- set not API" alt="Img 6">
-                    <h1>6</h1>
-                    <div class="card-name">
-                        <h4>6</h4>
-                    </div>
-                    <button type="submit" id="card-6playButton">Play</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-7">
-            <div class="card-7">
-                <div class="card-title">
-                    <img class="cardImg" src="URL from Unsplash- set not API" alt="Img 7">
-                    <h1>7</h1>
-                    <div class="card-name">
-                        <h4>7</h4>
-                    </div>
-                    <button type="submit" id="card-7playButton">Play</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="card-8">
-                <div class="card-title">
-                    <img class="cardImg" src="URL from Unsplash- set not API" alt="Img 8">
-                    <h1>3</h1>
-                    <div class="card-name">
-                        <h4>8</h4>
-                    </div>
-                    <button type="submit" id="card-8playButton">Play</button>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
+<div class="header-grid">
+    <a href="/create-playlist">
+        <div class="block">Make Your Own</div>
+    </a>
+    {{#each playlist}}
+    <a href="/playlist/{{id}}">
+        <div class="block">{{title}}</div>
+    </a>
+    {{/each}}
 </div>

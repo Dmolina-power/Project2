@@ -1,9 +1,22 @@
 // Creating our Card model
 module.exports = function(sequelize, DataTypes) {
   const Playlist = sequelize.define("Playlist", {
-    url: DataTypes.STRING,
-    mood: DataTypes.STRING,
-    description: DataTypes.STRING,
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    youtubeVideoId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    mood: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
 
   Playlist.associate = function(models) {

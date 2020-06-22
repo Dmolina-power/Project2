@@ -52,25 +52,60 @@ module.exports = function(app) {
   });
 
   app.get("/api/playlist", function(req, res) {
-    db.Playlist.findAll().then(function(dbPlaylist) {
-      res.json(dbPlaylist);
-    });
-  });
-  
-  app.get("/api/playlist/:id", function(req, res) {
-    db.Playlist.findOne({
-      where: { id: req.params.id },
+    db.Playlist.findAll({
+      include: [db.User],
     }).then(function(dbPlaylist) {
       res.json(dbPlaylist);
     });
   });
 
-  app.post("/api/playlist", function(req, res) {
+  app.get("/api/playlist/:id", function(req, res) {
+    db.Playlist.findOne({
+      where: { id: req.params.id },
+      include: [db.User],
+    }).then(function(dbPlaylist) {
+      res.json(dbPlaylist);
+    });
+  });
+
+  app.delete("/api/playlist/:id", function(req, res) {
+    db.Playlist.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(function(dbPlaylist) {
+        res.json(dbPlaylist);
+      })
+      .catch((err) => res.status(500).end());
+  });
+
+  app.put("/api/playlist", function(req, res) {
+    db.Playlist.update(
+      {
+        title: req.body.title,
+        youtubeVideoId: req.body.youtubeVideoId,
+        mood: req.body.mood,
+        description: req.body.description,
+      },
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    ).then(function(dbPlaylist) {
+      console.log(dbPlaylist);
+      res.json(dbPlaylist);
+    });
+  });
+
+  app.post("/api/playlist", isAuthenticated, function(req, res) {
     db.Playlist.create({
-      url: req.body.url,
+      title: req.body.title,
+      youtubeVideoId: req.body.youtubeVideoId,
       mood: req.body.mood,
       description: req.body.description,
-      UserId: 1,
+      UserId: req.user.id,
     }).then(function(dbPlaylist) {
       res.json(dbPlaylist);
     });
@@ -79,8 +114,20 @@ module.exports = function(app) {
   app.get("/api/unsplash/:search", function(req, res) {
     axios
       .get(
-        `https://api.unsplash.com/search/photos?query=${req.params.search}&client_id=${accessKey}`
+        `https://api.unsplash.com/search/photos?query=${req.params.search}&client_id=${accessKey}`,
+        {
+          responseType: "stream",
+        }
       )
-      .then((result) => res.json(result.data));
+      .then(function(result) {
+        axios({
+          method: "GET",
+          url:
+            "https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0Mjg1M30", // replace with img url that comes back from unsplash package
+          responseType: "stream",
+        }).then(function(response) {
+          response.data.pipe(res);
+        });
+      });
   });
 };
