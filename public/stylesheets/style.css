@@ -10,7 +10,10 @@
 
 .top-bar{
   color: #4c5b61;
-  
+  padding-left: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
 }
 
 .learn-button{
@@ -21,6 +24,17 @@
   max-width: 100%;
   height: 15vw;
   object-fit: cover;
+}
+
+
+
+.login-box, .signup-box {
+  box-shadow: 0 2px 4px rgba(10, 10, 10, 0.4);
+  background: #210124;
+  color: #89abbe;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
 }
 
 
