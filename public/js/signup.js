@@ -5,11 +5,11 @@ $(document).ready(() => {
   const passwordInput = $("input[name='password']");
 
   // When the signup button is clicked, we validate the username and password are not blank
-  signUpForm.on("submit", event => {
+  signUpForm.on("submit", (event) => {
     event.preventDefault();
     const userData = {
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
     };
 
     if (!userData.email || !userData.password) {
@@ -27,9 +27,9 @@ $(document).ready(() => {
     console.log(email, password);
     $.post("/api/signup", {
       email: email,
-      password: password
+      password: password,
     })
-      .then( data => {
+      .then((data) => {
         window.location.replace("/members");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
@@ -40,4 +40,5 @@ $(document).ready(() => {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
- });
+});
+
