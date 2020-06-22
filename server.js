@@ -2,12 +2,13 @@
 require("dotenv").config();
 const fetch = require("node-fetch");
 global.fetch = fetch;
+const logger = require("morgan");
 const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/sendmoods");
-const authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
+const authCheck = require("./config/middleware/attachAuthenticationStatus");
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
@@ -23,6 +24,9 @@ app.use(
 // Parsing of json body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// add serverside logging
+app.use(logger("dev"));
 
 // sets up public directory
 app.use(express.static("public"));
