@@ -1,3 +1,19 @@
-DROP DATABASE IF EXISTS mood_swing_db;
+DROP DATABASE IF EXISTS qa5tpy3gtlt7ebp8.Users;
 
-CREATE DATABASE mood_swing_db;
+CREATE DATABASE qa5tpy3gtlt7ebp8.Users;
+
+CREATE TABLE cards (
+
+ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+playlistURL VARCHAR(250) NOT NULL,
+
+playlistMood VARCHAR(250) NOT NULL,
+
+playlistDescription VARCHAR(250) NOT NULL,
+
+user_id int NOT NULL,
+
+CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE 
+
+);
