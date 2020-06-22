@@ -7,4 +7,5 @@ $(document).ready(function() {
       .addClass(selectedCssClass)
       .parent().addClass('is-voted');
   });
+  
 });
