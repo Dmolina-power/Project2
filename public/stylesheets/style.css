@@ -264,6 +264,11 @@
   grid-template-areas: "big-top big-top big-top small-top small-top" "small-middle small-middle big-middle big-middle big-middle" "big-bottom big-bottom big-bottom big-bottom big-bottom";
 }
 
+#logoImg{
+  width: 10%;
+  height: auto;
+}
+
 .block {
   height: 100%;
   width: 100%;
