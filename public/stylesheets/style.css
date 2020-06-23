@@ -276,6 +276,9 @@
   background: #89A6BE;
   opacity: 0.8;
   transition: opacity 0.2s ease-out;
+  text-align: center;
+  color: #Ab0d17;
+  font-weight: bolder;
 }
 
 .block:hover {
@@ -283,41 +286,6 @@
   opacity: 1;
 }
 
-#b1 {
-  grid-area: big-top;
-  text-align: center;
-  color: #Ab0d17;
-
-}
-
-#b2 {
-  grid-area: small-top;
-  text-align: center;
-  color: #Ab0d17;
-}
-
-#b3 {
-  grid-area: small-middle;
-  text-align: center;
-  color: #Ab0d17;
-}
-
-#b4 {
-  grid-area: big-middle;
-  text-align: center;
-  color: #Ab0d17;
-}
-
-
-.bottom-block {
-  grid-area: big-bottom;
-  display: -ms-grid;
-  display: grid;
-  text-align: center;
-  color: #Ab0d17;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-}
 
 .holy-grail-grid {
   display: -ms-grid;
