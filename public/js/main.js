@@ -1,6 +1,9 @@
-$(document).ready(function(){
-    $("#learn").click(function(){
-      
-      $(".featured-image-block-grid", ".grid2").toggle(".featured-image-block-grid", ".grid2");
+
+$(document).ready(function () {
+    $("#learn").click(function () {
+        $("#playBoxes", ".grid2").toggle("#playBoxes .grid2");
+
+
     });
-  });
+});
+

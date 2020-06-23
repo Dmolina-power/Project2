@@ -6,11 +6,11 @@ const axios = require("axios");
 
 const accessKey = process.env.ACCESS_KEY;
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
@@ -51,36 +51,36 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/api/playlist", function(req, res) {
+  app.get("/api/playlist", function (req, res) {
     db.Playlist.findAll({
       include: [db.User],
-    }).then(function(dbPlaylist) {
+    }).then(function (dbPlaylist) {
       res.json(dbPlaylist);
     });
   });
 
-  app.get("/api/playlist/:id", function(req, res) {
+  app.get("/api/playlist/:id", function (req, res) {
     db.Playlist.findOne({
       where: { id: req.params.id },
       include: [db.User],
-    }).then(function(dbPlaylist) {
+    }).then(function (dbPlaylist) {
       res.json(dbPlaylist);
     });
   });
 
-  app.delete("/api/playlist/:id", function(req, res) {
+  app.delete("/api/playlist/:id", function (req, res) {
     db.Playlist.destroy({
       where: {
         id: req.params.id,
       },
     })
-      .then(function(dbPlaylist) {
+      .then(function (dbPlaylist) {
         res.json(dbPlaylist);
       })
       .catch((err) => res.status(500).end());
   });
 
-  app.put("/api/playlist", function(req, res) {
+  app.put("/api/playlist", function (req, res) {
     db.Playlist.update(
       {
         title: req.body.title,
@@ -93,25 +93,27 @@ module.exports = function(app) {
           id: req.body.id,
         },
       }
-    ).then(function(dbPlaylist) {
+    ).then(function (dbPlaylist) {
       console.log(dbPlaylist);
       res.json(dbPlaylist);
     });
   });
 
-  app.post("/api/playlist", isAuthenticated, function(req, res) {
+  app.post("/api/playlist", isAuthenticated, function (req, res) {
     db.Playlist.create({
       title: req.body.title,
       youtubeVideoId: req.body.youtubeVideoId,
       mood: req.body.mood,
       description: req.body.description,
       UserId: req.user.id,
-    }).then(function(dbPlaylist) {
+    }).then(function (dbPlaylist) {
       res.json(dbPlaylist);
     });
   });
 
-  app.get("/api/unsplash/:search", function(req, res) {
+
+
+  app.get("/api/unsplash/:search", function (req, res) {
     axios
       .get(
         `https://api.unsplash.com/search/photos?query=${req.params.search}&client_id=${accessKey}`,
@@ -119,13 +121,13 @@ module.exports = function(app) {
           responseType: "json",
         }
       )
-      .then(function(result) {
+      .then(function (result) {
         console.log();
         axios({
           method: "GET",
           url: result.data.results[0].urls.regular, // replace with img url that comes back from unsplash package
           responseType: "stream",
-        }).then(function(response) {
+        }).then(function (response) {
           response.data.pipe(res);
         });
       });
