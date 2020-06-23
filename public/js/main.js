@@ -1,11 +1,6 @@
-$(document).ready(() => {
-    $("#playBoxes").hide(1);
-
-    $("#learn").click(function () {
-        $("#playBoxes").show(1000);
-        $("#danny").hide(1000);
+$(document).ready(function(){
+    $("#learn").click(function(){
+      
+      $(".featured-image-block-grid", ".grid2").toggle(".featured-image-block-grid", ".grid2");
     });
-
-
-});
-
+  });
