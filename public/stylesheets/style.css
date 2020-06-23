@@ -1,4 +1,4 @@
-.body{
+.body, .html{
   background-color: #210124;
 }
 
@@ -253,6 +253,7 @@
 }
 
 .header-grid {
+  background-color: #210124;
   width: 100%;
   height: 100vh;
   display: -ms-grid;
@@ -265,14 +266,32 @@
 }
 
 #logoImg{
-  width: 10%;
-  height: auto;
+  height: 75px;
+
 }
+
+.menu a{
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+
+.exit{
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+
+
+
+
+
 
 .block {
   height: 100%;
   width: 100%;
-  border: 1px solid white;
+  border: 4px solid #210124;
   background: #89A6BE;
   opacity: 0.8;
   transition: opacity 0.2s ease-out;
@@ -450,7 +469,8 @@ fill: transparent;
   border-bottom: 1px solid #cacaca;
   background-color: #210124;
   color:#89abbe;
-  
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .work-feature-block-image {
