@@ -59,23 +59,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/playpage1", function (req, res) {
-      console.log("we are here");
-      console.log('req', req);
-      if (!req.user) {
-        // The user is not logged in, send back an empty object
-        res.json({});
-      } else {
-        // Otherwise send back the user's username and id
-        // Sending back a password, even a hashed password, isn't a good idea
-        res.json({
-          email: req.user.email,
-          id: req.user.id,
-        });
-      }
-  });
-
-
   app.get("/api/playlist/:id", function(req, res) {
     db.Playlist.findOne({
       where: { id: req.params.id },
@@ -133,14 +116,14 @@ module.exports = function(app) {
       .get(
         `https://api.unsplash.com/search/photos?query=${req.params.search}&client_id=${accessKey}`,
         {
-          responseType: "stream",
+          responseType: "json",
         }
       )
       .then(function(result) {
+        console.log();
         axios({
           method: "GET",
-          url:
-            "https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0Mjg1M30", // replace with img url that comes back from unsplash package
+          url: result.data.results[0].urls.regular, // replace with img url that comes back from unsplash package
           responseType: "stream",
         }).then(function(response) {
           response.data.pipe(res);
