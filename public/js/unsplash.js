@@ -2,8 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(module.filename);
-const unsplash = require("unsplash");
-const env = process.env.NODE_ENV || "development";
+import Unsplash from 'unsplash-js';
+const Unsplash = require('unsplash-js').default;
+const unsplash = new Unsplash({accessKey: "{APP_ACCESS_KEY}" });
 const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
@@ -33,3 +34,5 @@ db.sequelize = sequelize;
 db.sequelize = Sequelize;
 
 module.exports = db;
+
+

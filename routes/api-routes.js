@@ -59,14 +59,13 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/playpage1", function (req, res) {
+  app.get("/api/playpage1", function(req, res) {
     db.Playpage.findAll({
       include: [db.User],
-    }).then(function (dbPlaypage) {
+    }).then(function(dbPlaypage) {
       res.json(dbPlaypage);
     });
   });
-
 
   app.get("/api/playlist/:id", function(req, res) {
     db.Playlist.findOne({
@@ -125,14 +124,14 @@ module.exports = function(app) {
       .get(
         `https://api.unsplash.com/search/photos?query=${req.params.search}&client_id=${accessKey}`,
         {
-          responseType: "stream",
+          responseType: "json",
         }
       )
       .then(function(result) {
+        console.log();
         axios({
           method: "GET",
-          url:
-            "https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0Mjg1M30", // replace with img url that comes back from unsplash package
+          url: result.data.results[0].urls.regular, // replace with img url that comes back from unsplash package
           responseType: "stream",
         }).then(function(response) {
           response.data.pipe(res);
