@@ -60,11 +60,19 @@ module.exports = function(app) {
   });
 
   app.get("/api/playpage1", function (req, res) {
-    db.Playpage.findAll({
-      include: [db.User],
-    }).then(function (dbPlaypage) {
-      res.json(dbPlaypage);
-    });
+      console.log("we are here");
+      console.log('req', req);
+      if (!req.user) {
+        // The user is not logged in, send back an empty object
+        res.json({});
+      } else {
+        // Otherwise send back the user's username and id
+        // Sending back a password, even a hashed password, isn't a good idea
+        res.json({
+          email: req.user.email,
+          id: req.user.id,
+        });
+      }
   });
 
 
