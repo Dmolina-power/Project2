@@ -1,5 +1,6 @@
 .body {
   background-color: #210124;
+  
 }
 
 .grid-container {
@@ -341,15 +342,18 @@
 
 
 
-.work-feature-block {
+.work-feature-block, .row{
   padding: 10px 0;
-  border-top: 1px solid #cacaca;
-  border-bottom: 1px solid #cacaca;
+  border-top: 1px solid #210124;
+  border-bottom: 1px solid #210124;
   background-color: #210124;
   color:#89abbe;
   margin-left: 0px;
   margin-right: 0px;
+  max-width: 100%;
 }
+
+
 
 .work-feature-block-image {
   display: block;
@@ -519,3 +523,31 @@
 .createbackground{
   background-color:  #210124;
 }
+
+
+.featured-image-block-grid {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #210124;
+  
+}
+
+
+
+.featured-image-block {
+  margin-bottom: 20px;
+}
+
+.featured-image-block .featured-image-block-title {
+  font-weight: 600;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1em;
+  color: #89A6BE;
+}
+
+.featured-image-block a:hover p {
+  color: #1779ba;
+}
+
