@@ -1,12 +1,27 @@
+{{> topbar }}
 <div>
     {{User.email}}
     {{createdAt}}
 </div>
-<div>
+<div class="james">
     <h1>Chill Out</h1>
-    <p>Time to relax and listen to some lo-fi beats.</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <img data-mood={{mood}} src="UNSPLASH URL" alt="placeholder">
+    <p class="kns">Time to relax and listen to some lo-fi beats</p>
+
+</div>
+
+<div class="news-image-gallery-container">
+    <div class="row">
+        <div class="small-12 medium-12 large-8 columns">
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+        </div>
+        <div class="small-12 medium-12 large-4 columns">
+            <img src="https://images.unsplash.com/photo-1511766836919-bc10e68e2d1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                alt="placeholder">
+        </div>
+    </div>
 
 </div>
