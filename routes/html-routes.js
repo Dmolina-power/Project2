@@ -45,6 +45,49 @@ module.exports = function(app) {
     res.render("create-playlist");
   });
 
+  app.get("/playpage/:id", isAuthenticated, function(req, res){
+    let pageName;
+
+    switch(parseInt(req.params.id)){
+      case 1: 
+        pageName = "playpage1";
+        break;
+
+      case 2:
+        pageName = "playpage2";
+        break;
+
+      case 3:
+        pageName = "playpage3";
+        break;
+
+      case 4:
+        pageName = "playpage4";
+        break;
+
+      case 5:
+        pageName = "playpage5";
+        break;
+
+      case 6:
+        pageName = "playpage6";
+        break;
+
+      case 7:
+        pageName = "playpage7";
+        break;
+
+      case 8:
+        pageName = "playpage8";
+        break;
+
+      default:
+        pageName = "playpage9";
+
+    }
+    res.render(pageName);
+  });
+
   app.get("/playlist/:id", isAuthenticated, function(req, res) {
     db.Playlist.findOne({
       where: {

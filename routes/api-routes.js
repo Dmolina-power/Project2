@@ -59,14 +59,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/playpage1", function(req, res) {
-    db.Playpage.findAll({
-      include: [db.User],
-    }).then(function(dbPlaypage) {
-      res.json(dbPlaypage);
-    });
-  });
-
   app.get("/api/playlist/:id", function(req, res) {
     db.Playlist.findOne({
       where: { id: req.params.id },
