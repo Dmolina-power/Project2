@@ -481,3 +481,41 @@
   margin-bottom: 0px;
 }
 
+
+.translucent-form-overlay {
+  max-width: 500px;
+  width: 100%;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS80xFh0mUDvbfP2bPS2xFHdSSDn0LhjlhB7OySwKMwQmaDSoIR&usqp=CAU");
+  background-size: cover;
+  background-position: center;  padding: 20px;
+  color: #fefefe;
+  margin-left: 315px;
+}
+
+.translucent-form-overlay .columns.row {
+  display: block;
+}
+
+.translucent-form-overlay h3, .translucent-form-overlay label {
+  color: #fefefe;
+}
+
+.translucent-form-overlay input, .translucent-form-overlay select {
+  color: #8a8a8a;
+}
+
+.translucent-form-overlay input::-webkit-input-placeholder {
+  color: #8a8a8a;
+}
+
+.translucent-form-overlay input:-ms-input-placeholder {
+  color: #8a8a8a;
+}
+
+.translucent-form-overlay input::placeholder {
+  color: #8a8a8a;
+}
+
+.createbackground{
+  background-color:  #210124;
+}
