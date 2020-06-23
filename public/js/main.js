@@ -1,11 +1,7 @@
-$(document).ready(() => {
-    $("#playBoxes").hide(1);
-
+$(document).ready(function () {
     $("#learn").click(function () {
-        $("#playBoxes").show(1000);
-        $("#danny").hide(1000);
+        $("#playBoxes", ".grid2").toggle("#playBoxes .grid2");
+
+
     });
-
-
 });
-
